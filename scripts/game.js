@@ -34,7 +34,7 @@ class Game {
       return array;
     }
 
-    const newCardArray = shuffleCards(cardArray).map((item) => {
+    const newCardArray = shuffleCards(cardArray).map((item) => { //to do: add eventListener for every card
       let card = new Card(item.image, item.name);
 
       card.renderCard();
@@ -62,4 +62,7 @@ class Game {
       console.log("printSeconds");
     }
   }
+
+  //eventListeners for every single card. eventListener call a method that changes the img src back to the value on this.imageSrc = imageSrc; in cards.js
+  
 }
