@@ -1,97 +1,123 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* height: 100px; */
+  background: #060ab2;
+  background: rgb(238, 174, 202);
+  background: -moz-radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+  background: -webkit-radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#eeaeca",endColorstr="#94bbe9",GradientType=1);
+}
+
+#startBtn {
+  background-color: #adccf0ba;
+  border: 0 solid #e5e7eb;
+  box-sizing: border-box;
+  color: #ffffff;
+  display: flex;
+  font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1.75rem;
+  padding: 0.75rem 1.65rem;
+  position: relative;
+  text-align: center;
+  text-decoration: none #000000 solid;
+  text-decoration-thickness: auto;
+  width: 100%;
+  max-width: 460px;
+  position: relative;
+  cursor: pointer;
+  transform: rotate(-2deg);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+#startBtn:focus {
+  outline: 0;
+}
+
+#startBtn:after {
+  content: "";
+  position: absolute;
+  border: 1px solid #000000;
+  bottom: 4px;
+  left: 4px;
+  width: calc(100% - 1px);
+  height: calc(100% - 1px);
+}
+
+#startBtn:hover:after {
+  bottom: 2px;
+  left: 2px;
+}
+
+@media (min-width: 768px) {
+  #startBtn {
+    padding: 0.75rem 3rem;
+    font-size: 1.25rem;
   }
 
- body {
-    /* height: 100px; */
-    background: #060AB2;
-    background: rgb(238,174,202);
-    background: -moz-radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
-    background: -webkit-radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
-    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#eeaeca",endColorstr="#94bbe9",GradientType=1);
- }
+  #startBtn {
+    display: block;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
 
+  #cardContainer {
+    width: 940px;
+    height: 740px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px;
+    margin-left: 180px;
+    padding-top: 60px;
+    padding-bottom: 80px;
+  }
 
+  .frontCard,
+  .flippedCard {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    position: absolute;
+    border-radius: 4px;
+    background: #adccf0ba;
+    backface-visibility: hidden;
+  }
+  .memoryCard.flippedCard {
+    transform: rotateY(180deg);
+  }
+  .memoryCard:active {
+    transform: scale(0.97);
+    transition: transform 0.1s;
+  }
 
-
- 
-    #startBtn {
-      background-color: #adccf0ba;
-      border: 0 solid #E5E7EB;
-      box-sizing: border-box;
-      color: #ffffff;
-      display: flex;
-      font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-      font-size: 1rem;
-      font-weight: 700;
-      justify-content: center;
-      line-height: 1.75rem;
-      padding: .75rem 1.65rem;
-      position: relative;
-      text-align: center;
-      text-decoration: none #000000 solid;
-      text-decoration-thickness: auto;
-      width: 100%;
-      max-width: 460px;
-      position: relative;
-      cursor: pointer;
-      transform: rotate(-2deg);
-      user-select: none;
-      -webkit-user-select: none;
-      touch-action: manipulation;
-    }
-    
-    #startBtn:focus {
-      outline: 0;
-    }
-    
-    #startBtn:after {
-      content: '';
-      position: absolute;
-      border: 1px solid #000000;
-      bottom: 4px;
-      left: 4px;
-      width: calc(100% - 1px);
-      height: calc(100% - 1px);
-    }
-    
-    #startBtn:hover:after {
-      bottom: 2px;
-      left: 2px;
-    }
-    
-    @media (min-width: 768px) {
-      #startBtn {
-        padding: .75rem 3rem;
-        font-size: 1.25rem;
-      }
-
-      #startBtn{
-
-        display: block;
-        margin-top: 100px;
-        margin-left: auto;
-        margin-right: auto;
-        width: 50%;
-  
-      }
-
-      #cardContainer {
-        width: 940px;
-        height: 740px;
-        margin: auto;
-        display: flex;
-        flex-wrap: wrap;
-        perspective: 1000px;
-        margin-left: 180px;
-        padding-top: 60px;
-        padding-bottom: 80px;
-        
-      }
-      
-
-      
-    }
+  .memoryCard.flippedCard {
+    transform: rotateY(180deg);
+  }
+}

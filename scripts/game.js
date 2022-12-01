@@ -13,14 +13,14 @@ const cardArray = [
   { name: "emoji eggs", image: "./images/image10.jpg" },
 ];
 
-//   const newCardArray = cardArray.map( function => cardArray )
+
 
 class Game {
-
   init() {
     this.clearBoard();
     this.renderAllCards();
-    
+    this.renderTimer();
+   
   }
 
   renderAllCards() {
@@ -41,11 +41,25 @@ class Game {
     });
   }
 
-  clearBoard(){
+  clearBoard() {
+    let getContainer = document.querySelector("#cardContainer");
 
-    let getContainer = document.querySelector('#cardContainer');
-
-    getContainer.innerHTML = ""  ;
+    getContainer.innerHTML = "";
   }
 
+  
+
+  renderTimer() {
+    let newTimer = new Timer(cardArray);
+
+    newTimer.startTimer(printSeconds);
+
+    console.log(newTimer.currentTime);
+
+    function printSeconds() {
+      const timerElement = document.getElementById("timer");
+      timerElement.innerHTML = newTimer.getSeconds();
+      console.log("printSeconds");
+    }
+  }
 }
