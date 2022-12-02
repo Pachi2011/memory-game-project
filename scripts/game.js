@@ -1,21 +1,31 @@
 //list object  Array name and image scr property
 
 const cardArray = [
-  { name: "books", image: "./images/image1.jpg" },
-  { name: "sign life is now", image: "./images/image2.jpg" },
-  { name: "man on the lake", image: "./images/image3.jpg" },
-  { name: "watermelon", image: "./images/image4.jpg" },
-  { name: "skull", image: "./images/image5.jpg" },
-  { name: "female modal", image: "./images/image6.jpg" },
-  { name: "green man", image: "./images/image7.jpg" },
-  { name: "child drawing", image: "./images/image8.jpg" },
-  { name: "female IT", image: "./images/image9.jpg" },
-  { name: "emoji eggs", image: "./images/image10.jpg" },
+  { name: "books", label: "Books", image: "./images/image1.jpg" },
+  { name: "sign", label: "sign life is now",  image: "./images/image2.jpg" },
+  { name: "man", label: "man on the lake", image: "./images/image3.jpg" },
+  { name: "watermelon", label: "Watermelon", image: "./images/image4.jpg" },
+  { name: "skull", label: "Skull", image: "./images/image5.jpg" },
+  { name: "female", label: "female modal", image: "./images/image6.jpg" },
+  { name: "green", label: "green man", image: "./images/image7.jpg" },
+  { name: "child", label: "child drawing", image: "./images/image8.jpg" },
+  { name: "female_IT", label: "female IT", image: "./images/image9.jpg" },
+  { name: "emoji_eggs", label: "emoji eggs", image: "./images/image10.jpg" },
 ];
 
 
 
+
+
 class Game {
+  constructor(){
+    //let newQuestion = new Question(this.cardArray);
+   
+    this.question = new Question(cardArray);
+    this.randomizedQuestion =  this.question.randomizedItem();
+    this.victory = false;
+    this.lives = 3;
+  }
   init() {
     this.clearBoard();
     this.renderAllCards();
@@ -34,10 +44,15 @@ class Game {
       return array;
     }
 
-    const newCardArray = shuffleCards(cardArray).map((item) => { //to do: add eventListener for every card
-      let card = new Card(item.image, item.name);
+    const newCardArray = shuffleCards(cardArray).map((item) => { 
+      
+
+      let card = new Card(item.image, item.name, this.randomizedQuestion, this.youWon, this.checkWinCondition);
 
       card.renderCard();
+
+      
+
     });
   }
 
@@ -50,7 +65,7 @@ class Game {
   
 
   renderTimer() {
-    let newTimer = new Timer(cardArray);
+    let newTimer = new Timer(cardArray, this.question, this.randomizedQuestion);
 
     newTimer.startTimer(printSeconds);
 
@@ -63,6 +78,22 @@ class Game {
     }
   }
 
-  //eventListeners for every single card. eventListener call a method that changes the img src back to the value on this.imageSrc = imageSrc; in cards.js
-  
+    youWon(){
+
+      this.victory = true;
+      
+
+    }
+
+    checkWinCondition(){
+
+      if (this.victory) {
+
+        alert("you Won the game!! game is going to restart");
+
+        this.victory = false;
+        this.lives = 3;
+        this.init();
+      }
+    }
 }

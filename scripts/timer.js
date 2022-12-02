@@ -1,8 +1,10 @@
 class Timer {
-  constructor(cardArray) {
+  constructor(cardArray,question, randomizedItem) {
     this.currentTime = 5;
     this.intervalId = null;
     this.cardArray = cardArray;
+    this.question = question;
+    this.randomizedItem = randomizedItem;
   }
 
   startTimer(printFunction) {
@@ -27,32 +29,22 @@ class Timer {
   }
 
   showQuestion() {
-    let newQuestion = new Question(this.cardArray);
+   
 
-    newQuestion.renderQuestion();
+    this.question.renderQuestion(this.randomizedItem.label);
   }
 
-  changeImgSrc(){
+  changeImgSrc() {
+    let getAllCards = document.querySelectorAll(".memoryCard");
 
-    let getAllCards = document.querySelectorAll(".memoryCard")
-
-    
     let getAllCardsArray = Array.from(getAllCards);
 
     const faceDownCardArray = getAllCardsArray.map((item) => {
-
       let cardImg = item.firstChild;
 
       cardImg.src = "./images/ironhackLogo.png";
-      // let card = new Card(item.image, item.name);
 
-      // card.renderCard();
-          
-    console.log(cardImg);
-
-    
-  });
-
+      console.log(cardImg);
+    });
   }
-
 }

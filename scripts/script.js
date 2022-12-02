@@ -9,4 +9,7 @@ window.onload = function () {
   }
 };
 
-//onclick show cards faced up for a few seconds (setTimer) showing photos of each card and number of turns (turns left : 3) and or countdown timer and ask first question (eg."where's the watermelon card?")
+
+// game alert and restart button start()function
+// compare id to ramdomizedName in question = add insde evverntloisten 
+//alert correct or wrong deleten life if wrong win/lose factor
