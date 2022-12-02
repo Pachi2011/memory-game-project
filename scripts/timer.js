@@ -1,5 +1,5 @@
 class Timer {
-  constructor(cardArray,question, randomizedItem) {
+  constructor(cardArray, question, randomizedItem) {
     this.currentTime = 5;
     this.intervalId = null;
     this.cardArray = cardArray;
@@ -11,7 +11,7 @@ class Timer {
     this.intervalId = setInterval(() => {
       this.currentTime--;
       if (printFunction) {
-       printFunction()
+        printFunction();
       }
 
       if (this.currentTime === 0) {
@@ -29,8 +29,6 @@ class Timer {
   }
 
   showQuestion() {
-   
-
     this.question.renderQuestion(this.randomizedItem.label);
   }
 

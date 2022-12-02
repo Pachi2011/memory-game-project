@@ -82,8 +82,8 @@ body {
   touch-action: manipulation;
 }
 
-#restartBtn{
-  margin-left:400px;
+#restartBtn {
+  margin-left: 400px;
   background-color: #adccf0ba;
   border: 0 solid #e5e7eb;
   box-sizing: border-box;

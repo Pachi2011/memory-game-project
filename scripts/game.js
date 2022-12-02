@@ -2,7 +2,7 @@
 
 const cardArray = [
   { name: "books", label: "Books", image: "./images/image1.jpg" },
-  { name: "sign", label: "sign life is now",  image: "./images/image2.jpg" },
+  { name: "sign", label: "sign life is now", image: "./images/image2.jpg" },
   { name: "man", label: "man on the lake", image: "./images/image3.jpg" },
   { name: "watermelon", label: "Watermelon", image: "./images/image4.jpg" },
   { name: "skull", label: "Skull", image: "./images/image5.jpg" },
@@ -13,16 +13,12 @@ const cardArray = [
   { name: "emoji_eggs", label: "emoji eggs", image: "./images/image10.jpg" },
 ];
 
-
-
-
-
 class Game {
-  constructor(){
+  constructor() {
     //let newQuestion = new Question(this.cardArray);
-   
+
     this.question = new Question(cardArray);
-    this.randomizedQuestion =  this.question.randomizedItem();
+    this.randomizedQuestion = this.question.randomizedItem();
     this.victory = false;
     this.lives = 3;
   }
@@ -30,7 +26,6 @@ class Game {
     this.clearBoard();
     this.renderAllCards();
     this.renderTimer();
-   
   }
 
   renderAllCards() {
@@ -44,15 +39,16 @@ class Game {
       return array;
     }
 
-    const newCardArray = shuffleCards(cardArray).map((item) => { 
-      
-
-      let card = new Card(item.image, item.name, this.randomizedQuestion, this.youWon, this.checkWinCondition);
+    const newCardArray = shuffleCards(cardArray).map((item) => {
+      let card = new Card(
+        item.image,
+        item.name,
+        this.randomizedQuestion,
+        this.youWon,
+        this.checkWinCondition
+      );
 
       card.renderCard();
-
-      
-
     });
   }
 
@@ -61,8 +57,6 @@ class Game {
 
     getContainer.innerHTML = "";
   }
-
-  
 
   renderTimer() {
     let newTimer = new Timer(cardArray, this.question, this.randomizedQuestion);
@@ -78,27 +72,21 @@ class Game {
     }
   }
 
-    youWon(){
+  youWon() {
+    this.victory = true;
+  }
 
-      this.victory = true;
-      
+  checkWinCondition() {
+    if (this.victory) {
+      alert("you Won the game!! game is going to restart");
 
+      this.victory = false;
+      this.lives = 3;
+      this.init();
     }
-
-    checkWinCondition(){
-
-      if (this.victory) {
-
-        alert("you Won the game!! game is going to restart");
-
-        this.victory = false;
-        this.lives = 3;
-        this.init();
-      }
-    }
+  }
 }
 
-
-function restartGame(){
-  location.reload()
+function restartGame() {
+  location.reload();
 }

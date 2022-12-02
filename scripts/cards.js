@@ -19,34 +19,25 @@ class Card {
 
       cardImg.src = imageSrc;
     }
-  memoryCardDiv.addEventListener("click", () => {
-    
-    let question = this.randomizedQuestion
-    console.log("this is the randomizes question for cads.js", question.name)
-    console.log("this.name", this.name)
+    memoryCardDiv.addEventListener("click", () => {
+      let question = this.randomizedQuestion;
+      console.log("this is the randomizes question for cads.js", question.name);
+      console.log("this.name", this.name);
 
-    if (this.name === question.name) {
+      if (this.name === question.name) {
+        alert("correct! You win press the restart button below to play again");
+      } else {
+        setTimeout(() => {
+          let cardImg = memoryCardDiv.firstChild;
 
-     alert("correct! You win press the restart button below to play again")
-      
-    }else{
-      setTimeout(() => {
+          cardImg.src = "./images/ironhackLogo.png";
+        }, 3000);
+        alert("wrong, you lose one life");
+        console.log("you lose one life");
+      }
 
-        let cardImg = memoryCardDiv.firstChild;
-
-        cardImg.src = "./images/ironhackLogo.png";
-        
-      }, 3000);
-      alert("wrong, you lose one life");
-      console.log("you lose one life");
-    }
-    
-    changeImgSrcBack(this.imageSrc)})
+      changeImgSrcBack(this.imageSrc);
+    });
     cardContainer.appendChild(memoryCardDiv);
   }
-
-
-
-
 }
-
