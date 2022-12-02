@@ -11,7 +11,7 @@ class Timer {
     this.intervalId = setInterval(() => {
       this.currentTime--;
       if (printFunction) {
-        printFunction();
+       printFunction()
       }
 
       if (this.currentTime === 0) {

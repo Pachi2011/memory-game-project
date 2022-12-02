@@ -27,8 +27,7 @@ class Card {
 
     if (this.name === question.name) {
 
-     alert("correct!")
-     
+     alert("correct! You win press the restart button below to play again")
       
     }else{
       setTimeout(() => {
@@ -50,3 +49,4 @@ class Card {
 
 
 }
+

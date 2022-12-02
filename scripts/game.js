@@ -97,3 +97,8 @@ class Game {
       }
     }
 }
+
+
+function restartGame(){
+  location.reload()
+}
