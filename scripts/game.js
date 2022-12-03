@@ -1,12 +1,12 @@
 //list object  Array name and image scr property
 
 const cardArray = [
-  { name: "books", label: "Books", image: "./images/image1.jpg" },
+  { name: "books", label: "books", image: "./images/image1.jpg" },
   { name: "sign", label: "sign life is now", image: "./images/image2.jpg" },
   { name: "man", label: "man on the lake", image: "./images/image3.jpg" },
-  { name: "watermelon", label: "Watermelon", image: "./images/image4.jpg" },
+  { name: "watermelon", label: "watermelon", image: "./images/image4.jpg" },
   { name: "skull", label: "Skull", image: "./images/image5.jpg" },
-  { name: "female", label: "female modal", image: "./images/image6.jpg" },
+  { name: "female", label: "female model", image: "./images/image6.jpg" },
   { name: "green", label: "green man", image: "./images/image7.jpg" },
   { name: "child", label: "child drawing", image: "./images/image8.jpg" },
   { name: "female_IT", label: "female IT", image: "./images/image9.jpg" },
